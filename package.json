@@ -1,7 +1,7 @@
 {
   "name": "desafio-hp",
   "version": "0.1.0",
-  "homepage": "https://Felipesv1.github.io/HarryPage",
+  "homepage": "https://Felipesv1.github.io/Desafio-Harrypage",
   "private": true,
   "dependencies": {
     "axios": "^0.27.2",
