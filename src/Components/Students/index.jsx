@@ -1,35 +1,35 @@
 import React,{useState,useEffect,useRef} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import {ApiStudents} from '../../Services/Apis'
 import * as S from './Style'
-import Logo from './img/logo.png'
+import logo from './img/logo.png'
 
 export default function Students(){
 
 
-const Api = 'http://hp-api.herokuapp.com/api/characters/staff'
 
-const [Staff,setStaff] = useState([])
+
+const [students,setStudents] = useState([])
 
 const [error,setError] = useState('')
-
-const refStaff = useRef(Staff)
+const refStudents = useRef(students)
 
 useEffect(() => {
 
-  axios.get(Api).then(res => {
-   setStaff(res.data.slice(0,8))
-  }).catch((erro)=> {
-    setError('Deu erro ai ' + error)
+  axios.get(ApiStudents).then(res => {
+   setStudents(res.data.slice(0,11))
+  }).catch((error) => {
+    setError("Deu Erro ai " + error )
   })
 })
 
 
   return(
 
-    <S.Container ref={refStaff}>
+    <S.Container ref={refStudents}>
       <S.HeaderLinks>
-        <S.ImgLogo src={Logo} alt='logo'/>
+      <S.Imglogo src={logo} alt=''/>
     <Link to='/'> 
      Homepage
     </Link>
@@ -40,10 +40,8 @@ useEffect(() => {
      Staff
     </Link>
       </S.HeaderLinks>
-
-      <h1>Staff</h1>
-    
-    <S.Boxul>{Staff.map((item) => (
+      <h1> Students</h1>
+    <S.Boxul>{students.map((item) => (
       <S.BoxCards>
       <li>{item.name}</li>
       <S.Img src={item.image} alt={item.name}/>
