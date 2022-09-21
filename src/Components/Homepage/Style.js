@@ -38,8 +38,8 @@ export const Img = styled.img`
 
 border:solid;
 margin-top: 50px;
-width:600px;
-height:600px;
+width:50%;
+height:50%;
 border-radius: 50%;
 object-fit:cover;
 `
